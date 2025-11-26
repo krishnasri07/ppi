@@ -65,10 +65,10 @@ pip install tqdm scikit-learn pandas numpy
 ---
 
 # Dataset
-- protein.SHS27k.sequences.dictionary.pro3.tsv — Protein sequence dictionary
-- protein_embeddings_combined.pkl — Precomputed protein embeddings
-- protein_interactions_CSV.csv — Protein–protein interaction dataset
-- transposed_data.csv — Reformatted dataset structure
+- protein.SHS27k.sequences.dictionary.pro3.tsv: Protein sequence dictionary
+- protein_embeddings_combined.pkl:              Precomputed protein embeddings
+- protein_interactions_CSV.csv:                 Protein–protein interaction dataset
+- transposed_data.csv:                          Reformatted dataset structure
 
 The dataset files is available at:
 ### [Download Dataset](https://drive.google.com/file/d/1ADa40v5O0n5kBVg7C78U6kBFlp1h4Xuq/view?usp=sharing)
