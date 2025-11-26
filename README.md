@@ -186,8 +186,3 @@ The Strong class achieves perfect ROC-AUC and PR-AUC, demonstrating excellent le
 
 ---
 
-# Future Work
-- Extend to more organisms & datasets
-- Replace GCN with newer models: GraphSAGE, GAT, GIN, HGT
-- Use 3D structure-based embeddings (ESMFold)
-- Apply contrastive learning for pretraining
