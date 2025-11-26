@@ -18,12 +18,15 @@ Note: All experiments were executed on **Google Colab using T4 GPU** for reprodu
 
 ## 📂 Repository Structure
 
-📁 Codes  
-   ├─ Final_extracting_protein_embeddins.ipynb  
-   └─ PPI_GCN.ipynb
+📁 Codes <br>
+   │ ├── Final_extracting_protein_embeddins.ipynb <br>
+   │ └── PPI_GCN.ipynb
 
 📁 Datasets  
-   ├─ link  (Public Google Drive link to dataset / embeddings)  
+   │ ├── protein.SHS27k.sequences.dictionary.pro3.tsv <br>
+   │ ├── protein_embeddings_combined.pkl <br>
+   │ ├── protein_interactions_CSV.csv <br>
+   │ └── transposed_data.csv <br>
    └─ LICENSE
 
 
@@ -61,8 +64,13 @@ pip install tqdm scikit-learn pandas numpy
 ```
 ---
 
-# Download Dataset
-The dataset (STRING files, embeddings, sequence dictionary) is available at:
+# Dataset
+- protein.SHS27k.sequences.dictionary.pro3.tsv — Protein sequence dictionary
+- protein_embeddings_combined.pkl — Precomputed protein embeddings
+- protein_interactions_CSV.csv — Protein–protein interaction dataset
+- transposed_data.csv — Reformatted dataset structure
+
+The dataset files is available at:
 ### [Download Dataset](https://drive.google.com/file/d/1ADa40v5O0n5kBVg7C78U6kBFlp1h4Xuq/view?usp=sharing)
 
 
@@ -85,6 +93,7 @@ The dataset (STRING files, embeddings, sequence dictionary) is available at:
 ### 1. Extract Protein Embeddings
 
 Upload notebook in google colab,
+
 Codes/Final_extracting_protein_embeddins.ipynb
 
 This notebook performs:
@@ -96,6 +105,7 @@ This notebook performs:
 ### 2. Train the GCN Model
 
 Upload notebook in google colab,
+
 Codes/PPI_GCN.ipynb
 
 This notebook includes:
@@ -107,23 +117,23 @@ This notebook includes:
 - Complete evaluation metrics and plots
 
 ### 3. Model Architecture
-- Node Encoder (GCN)
-- 4× GCNConv layers
-- Hidden size: 256
-- Each layer: GCN → ReLU → Dropout
-- Edge Classifier (MLP)
 
-Input:
+#### Node Encoder (GCN):
+- 4× GCNConv layers  
+- Hidden size: **256**  
+- Each layer: **GCN → ReLU → Dropout**
+
+#### Edge Classifier (MLP):
+**Input Format:**
 [node embedding i || node embedding j || edge attribute]
 
-### 4. Architecture:
+### 4. Training & Optimization Strategy
 
-- 513 → 256 → ReLU → Dropout → 3 logits
-- Loss Functions
-- Model 1: Weighted Cross Entropy
-- Model 2: Focal Loss
-Ensemble Output: Average of both models
-
+- MLP architecture: **513 → 256 → ReLU → Dropout → 3 logits**
+- **Loss Functions:**
+  - Model 1: **Weighted Cross Entropy**
+  - Model 2: **Focal Loss**
+- **Ensemble Output:** Average prediction of both models
 ---
 
 # Results
